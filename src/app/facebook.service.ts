@@ -5,15 +5,14 @@ import { Observable } from 'rxjs';
 export interface FacebookUser {
   id: string;
   name: string;
-  email: string;
+  email?: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class FacebookService {
-
-  private apiUrl = 'https://localhost:7033/api/Facebook/GetFacebookUser';
+  private apiUrl = 'https://graph.facebook.com/me?fields=id,name,email';
 
   constructor(private http: HttpClient) {}
 
